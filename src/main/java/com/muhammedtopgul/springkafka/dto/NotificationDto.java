@@ -1,8 +1,11 @@
 package com.muhammedtopgul.springkafka.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -12,10 +15,13 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString(of = {"id", "message", "messageDate"})
 public class NotificationDto {
-    private String message;
-    private String id = UUID.randomUUID().toString();
-    private LocalDate messageDate = LocalDate.now();
+    private final String message;
+    private final String id = UUID.randomUUID().toString();
+    private final LocalDateTime messageDate = LocalDateTime.now();
+
+    public NotificationDto() {
+        message = "Default Message";
+    }
 }
